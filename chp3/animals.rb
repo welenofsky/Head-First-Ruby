@@ -26,6 +26,10 @@ class Animal
 		puts "Running to the #{destination}."
 	end
 
+	def to_s
+		puts "#{@name} the #{self.class.name.downcase} is #{@age} years old"
+	end
+
 end
 
 
@@ -43,10 +47,6 @@ end
 
 class Dog < Animal
 
-	def to_s
-		puts "#{@name} the dog is #{@age} years old"
-	end
-
 	def talk
 		puts "Bark!"
 	end
@@ -61,7 +61,7 @@ class Cat < Animal
 
 end
 
-class armadillo < Animal
+class Armadillo < Animal
 
 	def move(destination)
 		puts "#{@name} unrolls!"
