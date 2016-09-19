@@ -6,4 +6,6 @@ print "What's your name? "
 
 input = gets
 
-puts "Welcome, #{input}"
+name = input.chomp
+
+puts "Welcome, #{name}!"
