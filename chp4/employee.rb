@@ -23,7 +23,7 @@ class Employee
 
 	def print_pay_stub
 		puts "Name: #{name}"
-		pay_for_period = (@salary / 365.0) * 14
+		pay_for_period = (salary / 365.0) * 14
 		pay_for_period = format("%0.2f", pay_for_period)
 		puts "Pay this period: $#{pay_for_period}"
 	end
