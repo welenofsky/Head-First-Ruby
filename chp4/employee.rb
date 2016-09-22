@@ -2,6 +2,12 @@ class HourlyEmployee < Employee
 
 	attr_reader :hourly_wage, :hours_per_week
 
+	def initialize(name = "Anonymous", hourly_wage = 0.0, hours_per_week = 0.0)
+		self.name = name
+		self.hourly_wage = hourly_wage
+		self.hours_per_week = hours_per_week
+	end
+
 	def hourly_wage=(hourly_wage)
 		# validation
 	end
@@ -12,9 +18,9 @@ class HourlyEmployee < Employee
 
 	def print_pay_stub
 		puts "Name: #{name}"
-		pay_for_period = (salary / 365.0) * 14
-		pay_for_period = format("%0.2f", pay_for_period)
-		puts "Pay this period: $#{pay_for_period}"
+		pay_for_period = hourly_wage & hours_per_week * 2
+		formatted_pay = format("$%0.2f", pay_for_period)
+		puts "Pay this period: $#{formatted_pay}"
 	end
 
 end
@@ -27,11 +33,16 @@ class SalariedEmployee < Employee
 		# validation
 	end
 
+	def initialize(name = "Anonymous", salary = 0.0)
+		self.name = name
+		self.salary = salary
+	end
+
 	def print_pay_stub
 		puts "Name: #{name}"
 		pay_for_period = (salary / 365.0) * 14
-		pay_for_period = format("%0.2f", pay_for_period)
-		puts "Pay this period: $#{pay_for_period}"
+		formatted_pay = format("$%0.2f", pay_for_period)
+		puts "Pay this period: $#{formatted_pay}"
 	end
 
 end
