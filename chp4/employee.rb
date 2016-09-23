@@ -13,6 +13,9 @@ class Employee
 		@name = name
 	end
 
+	def print_name
+		puts "Name: #{name}"
+	end
 
 end
 
@@ -55,7 +58,7 @@ class HourlyEmployee < Employee
 	end
 
 	def print_pay_stub
-		puts "Name: #{name}"
+		print_name
 		pay_for_period = hourly_wage * hours_per_week * 2
 		formatted_pay = format("$%0.2f", pay_for_period)
 		puts "Pay this period: $#{formatted_pay}"
@@ -80,7 +83,7 @@ class SalariedEmployee < Employee
 	end
 
 	def print_pay_stub
-		puts "Name: #{name}"
+		print_name
 		pay_for_period = (salary / 365.0) * 14
 		formatted_pay = format("$%0.2f", pay_for_period)
 		puts "Pay this period: $#{formatted_pay}"
