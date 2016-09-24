@@ -8,3 +8,10 @@ my_method do
 	puts "We're in the block!"
 end
 
+my_method do
+	puts "It's a block party!"
+end
+
+my_method do
+	puts "Woooo!"
+end
