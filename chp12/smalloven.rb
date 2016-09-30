@@ -12,11 +12,24 @@ class SmallOven
 	end
 
 	def bake
-		uless @state == "on"
-		raise "You need to turn the oven on first!"
+		unless @state == "on"
+			raise "You need to turn the oven on first!"
+		end
+		if @contents == nil
+			raise "There's nothing in the oven!"
+		end
+		"golden-brown #{contents}"
 	end
-	if @contents == nil
-		raise "There's nothing in the oven!"
+end
+
+dinner = ['turkey', nil, 'pie']
+oven = SmallOven.new
+oven.turn_on
+dinner.each do |item|
+	begin
+		oven.contents = item
+		puts "Serving #{oven.bake}."
+	rescue
+		puts "Error: There's nothing in the oven"
 	end
-	"golden-brown #{contents}"
 end
